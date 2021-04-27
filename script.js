@@ -1,3 +1,12 @@
+function myFunction() {
+    var links = document.getElementById("nav-links");
+    if (links.style.display === "block" ) {
+        links.style.display = "none";
+    } else {
+        links.style.display = "block";x
+    }
+}
+
 function featuresTabList(event, featureTab) {
     let i, featuresTabSlider, featuresTabTitle;
     featuresTabSlider = document.getElementsByClassName("features-tab-slider--1");
@@ -10,8 +19,16 @@ function featuresTabList(event, featureTab) {
         featuresTabTitle[i].className = featuresTabTitle[i].className.replace(" active", "");
     }
 
-    document.getElementById(featureTab).style.display = "flex";
-    event.currentTarget.className += " active";
+    var x = window.matchMedia("(max-width: 767px)")
+    
+    if (x.matches) {
+        document.getElementById(featureTab).style.display = "block";
+        event.currentTarget.className += " active";
+    } else {
+        document.getElementById(featureTab).style.display = "flex";
+        event.currentTarget.className += " active";
+    }
+    
 
 }
 
